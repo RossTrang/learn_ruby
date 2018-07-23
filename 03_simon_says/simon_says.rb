@@ -21,9 +21,11 @@ end
 
 def titleize(str)
   little_words = ["and", "the", 'over']
-  arr = str.split(" ")
-  for word in arr do
-    word.capitalize! unless little_words.include?(word) && arr.index(word) != 0
-  end
-  arr.join(" ")
+  str.split.each_with_index.map { |word, index| little_words.include?(word) && index != 0 ? word : word.capitalize!}.join(" ")
 end
+
+#  arr = str.split(" ")
+#    for word in arr do
+#      word.capitalize! unless little_words.include?(word) && arr.index(word) != 0
+#    end
+#  arr.join(" ")
